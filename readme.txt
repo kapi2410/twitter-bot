@@ -15,3 +15,9 @@ Deployed on heroku.
 You can see this bot in "action"* here : https://twitter.com/CryptoBot24
 
 *Sadly it doesnt work 24/7 as i didnt want to pay for apis/heroku.
+
+files describtion:
+    -history.txt - stores history of answeared tweets so bot doesnt reply twice to one comment
+    -pricehis.pkl - stores price history as dictionary
+    -chart.png - everytime script creates chart it saves it like this
+    
