@@ -8,7 +8,7 @@ import pickle
 import time
 import dotenv as de
 import os as _os
-
+import pyrebase
 de.load_dotenv()
 
 apikey = _os.environ["apikey"]
@@ -17,6 +17,18 @@ tkey = _os.environ["tkey"]
 tkey_secret = _os.environ["tkey_secret"]
 t_access_token = _os.environ["t_access_token"]
 t_access_token_sec = _os.environ["t_access_token_sec"]
+
+config = {
+  "apiKey": "AIzaSyCxAavRTxaI1ubutUw8FEIsjDxZGwoTumQ",
+  "authDomain": "ttbot-43e76.firebaseapp.com",
+  "projectId": "ttbot-43e76",
+  "storageBucket": "ttbot-43e76.appspot.com",
+  "messagingSenderId": "1085822555926",
+  "appId": "1:1085822555926:web:3734e4144a6bddd82ee237",
+  "measurementId": "G-VFV00NPXB5",
+  "databaseURL":"https://ttbot-43e76.firebaseio.com"
+}
+
 
 class cmc:
   def __init__(self,key=apikey):
@@ -179,6 +191,8 @@ class twitter:
       replies.append([i.id,i.text])
     return replies
 
+  
+
 def make_text(text):
   """
   simple function that transforms text so it looks better on twitter
@@ -261,9 +275,16 @@ def alert():
         a += 1
         dchart(i)
         t.api.update_status_with_media(status="Price alert! {} is up {} % !!".format(i,round(d,2)),filename="chart.png")
+      elif d <= -5 and a <=2:
+        a+=1
+        dchart(i)
+        t.api.update_status_with_media(status="Price alert! {} is down {} % !!".format(i,round(d,2)),filename="chart.png")
 
 
 def main():
+  firebase = pyrebase.initialize_app(config)
+  storage = firebase.storage()
+  storage.child("history.txt").download("history.txt","history.txt")
   while True:
     up()
     time.sleep(120) #2min
@@ -272,10 +293,21 @@ def main():
     time.sleep(480) #8min
     reps()
     alert()
-    for i in range(143):
-      time.sleep(600) # 10 min
+    for i in range(42):
+      time.sleep(200) 
       reps()
       alert()
+      time.sleep(400)
+    up()
+    for i in range(42):
+      time.sleep(200)
+      reps()
+      alert()
+      time.sleep(400) 
+    up()
+
+    storage.child("history.txt").put("history.txt")
+
 
 if __name__ =='__main__':
   main()
