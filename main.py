@@ -293,18 +293,22 @@ def main():
     time.sleep(480) #8min
     reps()
     alert()
-    for i in range(42):
+    for i in range(21):
       time.sleep(200) 
       reps()
+      time.sleep(600)
       alert()
+      reps()
       time.sleep(400)
     up()
-    for i in range(42):
+    for i in range(21):
       time.sleep(200)
+      reps()
+      time.sleep(600)
       reps()
       alert()
       time.sleep(400) 
-    up()
+    
 
     storage.child("history.txt").put("history.txt")
 
