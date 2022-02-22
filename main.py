@@ -17,9 +17,10 @@ tkey = _os.environ["tkey"]
 tkey_secret = _os.environ["tkey_secret"]
 t_access_token = _os.environ["t_access_token"]
 t_access_token_sec = _os.environ["t_access_token_sec"]
+diskapi = _os.environ["diskapi"]
 
 config = {
-  "apiKey": "AIzaSyCxAavRTxaI1ubutUw8FEIsjDxZGwoTumQ",
+  "apiKey": diskapi,
   "authDomain": "ttbot-43e76.firebaseapp.com",
   "projectId": "ttbot-43e76",
   "storageBucket": "ttbot-43e76.appspot.com",
