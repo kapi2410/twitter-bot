@@ -149,7 +149,9 @@ def dchart(symbol):
     with open("chart.png",'wb') as f:
       r.raw.decode_content = True
       shutil.copyfileobj(r.raw,f)
-
+    return True
+  else:
+    return False
 
 class twitter:
   def __init__(self):
@@ -223,8 +225,10 @@ def up():
   x = c.getstats(4)
   p = make_text(x)
   t = twitter()
-  dchart("BTC")
-  t.create_tweet(text=p,img="chart.png")
+  if dchart("BTC") is True:
+    t.create_tweet(text=p,img="chart.png")
+  else:
+    pass
 
 def reps():
   """
@@ -243,8 +247,8 @@ def reps():
       a = (i[1].replace("@"+t.name+" ","")).upper()
       hist.append(i[0])
       if a in syms:
-        dchart(a)
-        t.api.update_status_with_media(status=a,filename="chart.png",in_reply_to_status_id= str(i[0]),auto_populate_reply_metadata=True)
+        if dchart(a) is True:
+          t.api.update_status_with_media(status=a+'\n#{} ${}'.format(a,a),filename="chart.png",in_reply_to_status_id= str(i[0]),auto_populate_reply_metadata=True)
 
   with open("history.txt", 'w') as f:
     for s in hist:
@@ -273,12 +277,12 @@ def alert():
       d = (pr[i][-1]/pr[i][-2] -1)*100
       if  d >= 5 and a <= 2:
         a += 1
-        dchart(i)
-        t.api.update_status_with_media(status="Price alert! {} is up {} % !!".format(i,round(d,2)),filename="chart.png")
+        if dchart(i) is True:
+          t.api.update_status_with_media(status="Price alert! {} is up {} % !!\n#{} ${}".format(i,round(d,2),i,i),filename="chart.png")
       elif d <= -5 and a <=2:
         a+=1
-        dchart(i)
-        t.api.update_status_with_media(status="Price alert! {} is down {} % !!".format(i,round(d,2)),filename="chart.png")
+        if dchart(i) is True:
+          t.api.update_status_with_media(status="Price alert! {} is down {} % !!\n#{} ${}".format(i,abs(round(d,2)),i,i),filename="chart.png")
 
 
 def main():
@@ -287,29 +291,12 @@ def main():
   storage.child("history.txt").download("history.txt","history.txt")
   while True:
     up()
-    time.sleep(120) #2min
-    reps()
-    alert()
-    time.sleep(480) #8min
-    reps()
-    alert()
-    for i in range(21):
-      time.sleep(200) 
+    for i in range(16):
+      time.sleep(900)
       reps()
-      time.sleep(600)
-      alert()
-      reps()
-      time.sleep(400)
-    up()
-    for i in range(21):
-      time.sleep(200)
-      reps()
-      time.sleep(600)
+      time.sleep(900)
       reps()
       alert()
-      time.sleep(400) 
-    
-
     storage.child("history.txt").put("history.txt")
 
 
