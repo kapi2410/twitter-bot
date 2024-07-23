@@ -25,14 +25,14 @@ You can see this bot in action [here](https://twitter.com/CryptoBot24).
 ### Few Screenshots
 Here are some screenshots demonstrating the bot in action:
 
-![Posting Price Updates](screenshots/screenshot1.png)
+![Posting Price Updates](screenshots/1.png)
 *Posting price updates*
 
-![Price Alerts](screenshots/screenshot2.png)
+![Price Alerts](screenshots/2.png)
 *Price alerts*
 
-![Price Alerts](screenshots/screenshot3.png)
+![Price Alerts](screenshots/3.png)
 *Price alerts*
 
-![Replying to Replies with Symbols](screenshots/screenshot4.png)
+![Replying to Replies with Symbols](screenshots/4.png)
 *Replying to replies with symbols*
