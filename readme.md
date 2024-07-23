@@ -1,23 +1,38 @@
-This is simple twitter bot that:
- -posts crypto price updates from time to time,
- -checks for replies to its tweets with cryptocyrrency symbols and will 
-    answer them with price charts for that symbol,
- -every ten minutes snapshots top100 cryptos prices and if there is huge
-    change it will post price alert tweet,
+# CryptoBot24
 
-Mostly based on APIs:
-    -https://coinmarketcap.com
-    -https://twitter.com/
-    -https://chart-img.com/ 
+This is a simple Twitter bot that:
 
-Deployed on heroku.
+- Posts crypto price updates from time to time.
+- Checks for replies to its tweets with cryptocurrency symbols and responds with price charts for those symbols.
+- Every ten minutes, snapshots the top 100 crypto prices and posts a price alert tweet if there is a significant change.
 
-You can see this bot in "action"* here : https://twitter.com/CryptoBot24
+### APIs Used
+- [CoinMarketCap](https://coinmarketcap.com)
+- [Twitter](https://twitter.com)
+- [Chart-Img](https://chart-img.com)
 
-*Sadly it doesnt work 24/7 as i didnt want to pay for apis/heroku.
+Deployed on Heroku.
 
-files describtion:
-    -history.txt - stores history of answered tweets so bot doesnt reply twice to one comment
-    -pricehis.pkl - stores price history as dictionary
-    -chart.png - everytime script creates chart it saves it like this
-    
+You can see this bot in action [here](https://twitter.com/CryptoBot24).
+
+**Note**: This project was created in 2022, and the APIs used might have changed since then.
+
+### Files Description
+- **history.txt**: Stores history of answered tweets to prevent the bot from replying twice to the same comment.
+- **pricehis.pkl**: Stores price history as a dictionary.
+- **chart.png**: The script saves the latest chart it creates with this name.
+
+### Few Screenshots
+Here are some screenshots demonstrating the bot in action:
+
+![Posting Price Updates](screenshots/screenshot1.png)
+*Posting price updates*
+
+![Price Alerts](screenshots/screenshot2.png)
+*Price alerts*
+
+![Price Alerts](screenshots/screenshot3.png)
+*Price alerts*
+
+![Replying to Replies with Symbols](screenshots/screenshot4.png)
+*Replying to replies with symbols*
