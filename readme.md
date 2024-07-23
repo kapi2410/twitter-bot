@@ -23,16 +23,16 @@ You can see this bot in action [here](https://twitter.com/CryptoBot24).
 - **chart.png**: The script saves the latest chart it creates with this name.
 
 ### Few Screenshots
-Here are some screenshots demonstrating the bot in action:
-
+Here are some screenshots demonstrating the bot in action:  
+*Posting price updates*  
 ![Posting Price Updates](screenshots/1.png)
-*Posting price updates*
 
+*Price alerts*  
 ![Price Alerts](screenshots/2.png)
-*Price alerts*
 
+*Price alerts*  
 ![Price Alerts](screenshots/3.png)
-*Price alerts*
 
+*Replying to replies with symbols*  
 ![Replying to Replies with Symbols](screenshots/4.png)
-*Replying to replies with symbols*
+
