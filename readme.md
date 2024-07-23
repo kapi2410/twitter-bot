@@ -17,10 +17,11 @@ You can see this bot in action [here](https://twitter.com/CryptoBot24).
 
 **Note**: This project was created in 2022, and the APIs used might have changed since then.
 
-### Files Description
-- **history.txt**: Stores history of answered tweets to prevent the bot from replying twice to the same comment.
-- **pricehis.pkl**: Stores price history as a dictionary.
-- **chart.png**: The script saves the latest chart it creates with this name.
+### APIs and Libraries Used
+- [CoinMarketCap](https://coinmarketcap.com)
+- [Twitter](https://twitter.com)
+- [Chart-Img](https://chart-img.com)
+- [Pyrebase](https://github.com/thisbejim/Pyrebase) (to interact with Firebase for data storage)  
 
 ### Few Screenshots
 Here are some screenshots demonstrating the bot in action:  
